@@ -346,7 +346,7 @@ Resources:
   DomainRecord:
     Type: 'AWS::Route53::RecordSet'
     Properties:
-      HostedZoneId: !ImportValue JaiKHostedZoneId
+      HostedZoneId: !ImportValue JaiK-HostedZoneId
       Name: chess.jaik.me
       Type: A
       AliasTarget:

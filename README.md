@@ -33,7 +33,7 @@ This stack imports values from other stacks:
 
 - `GlobalResourcesStack-GitHubConnectionArn` — CodeStar connection for GitHub
 - `JaikMeWildCard-CertificateArn` — ACM wildcard certificate for HTTPS
-- `JaiKHostedZoneId` — Route 53 hosted zone
+- `JaiK-HostedZoneId` — Route 53 hosted zone
 
 ## Deployment
 
