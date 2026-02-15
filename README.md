@@ -32,8 +32,8 @@ GitHub (iJKTen/chess-trainer) → CodePipeline → CodeBuild (build) → CodeBui
 This stack imports values from other stacks:
 
 - `GlobalResourcesStack-GitHubConnectionArn` — CodeStar connection for GitHub
-- `ChessTrainer-CertificateArn` — ACM certificate for HTTPS
-- `ChessTrainer-HostedZoneId` — Route 53 hosted zone
+- `JaikMeWildCard-CertificateArn` — ACM wildcard certificate for HTTPS
+- `JaiKHostedZoneId` — Route 53 hosted zone
 
 ## Deployment
 

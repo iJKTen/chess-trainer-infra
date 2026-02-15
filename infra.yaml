@@ -336,15 +336,17 @@ Resources:
           #   3. Uses sensible TTLs: min 1s, default 24h, max 1yr (respects Cache-Control headers from origin)
           # Docs: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html
           CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+        HttpVersion: http2
         ViewerCertificate:
-          AcmCertificateArn: !ImportValue "ChessTrainer-CertificateArn"
+          AcmCertificateArn: !ImportValue "JaikMeWildCard-CertificateArn"
           SslSupportMethod: sni-only
+          MinimumProtocolVersion: TLSv1.2_2021
 
 # DNS flow: Route53 (chess.jaik.me) -> CloudFront -> S3 bucket
   DomainRecord:
     Type: 'AWS::Route53::RecordSet'
     Properties:
-      HostedZoneId: !ImportValue ChessTrainer-HostedZoneId
+      HostedZoneId: !ImportValue JaiKHostedZoneId
       Name: chess.jaik.me
       Type: A
       AliasTarget:
