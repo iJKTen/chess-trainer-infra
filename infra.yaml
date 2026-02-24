@@ -151,7 +151,8 @@ Resources:
             build:
               commands:
                 # Hashed static assets — cache forever (hash changes on new builds)
-                - aws s3 sync . s3://$DEPLOY_BUCKET --delete --cache-control "max-age=31536000,public,immutable" --exclude "index.html"
+                # Exclude data/ from --delete so manually uploaded files (e.g. openings.json) persist across deploys
+                - aws s3 sync . s3://$DEPLOY_BUCKET --delete --cache-control "max-age=31536000,public,immutable" --exclude "index.html" --exclude "data/*"
                 # index.html — always revalidate to pick up new asset references
                 - aws s3 cp index.html s3://$DEPLOY_BUCKET/index.html --cache-control "max-age=0,no-cache,no-store,must-revalidate"
             post_build:
